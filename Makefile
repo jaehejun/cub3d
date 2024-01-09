@@ -6,7 +6,7 @@
 #    By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/03 19:32:59 by jaehejun          #+#    #+#              #
-#    Updated: 2024/01/08 21:27:08 by jaehejun         ###   ########.fr        #
+#    Updated: 2024/01/09 22:57:53 by jaehejun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,13 @@ NAME	= cub3D
 
 CC		=	CC
 
-CFLAGS	=	-Wall -Wextra -Werror -I./libft -fsanitize=address -g
+CFLAGS	=	-Wall -Wextra -Werror -I./libft #-fsanitize=address -g
 
 SRCS	=	main.c\
 			utils.c\
 			check_argument.c\
 			load_scene.c\
-			
+			load_map.c\
 			
 
 OBJS	=	$(SRCS:.c=.o)

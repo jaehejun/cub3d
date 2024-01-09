@@ -1,44 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   load_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 14:24:43 by jaehejun          #+#    #+#             */
-/*   Updated: 2024/01/09 22:25:18 by jaehejun         ###   ########.fr       */
+/*   Created: 2024/01/09 22:00:12 by jaehejun          #+#    #+#             */
+/*   Updated: 2024/01/09 22:21:57 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	print_error(const char *str)
-{
-	printf("Error\n%s\n", str);
-	exit(1);
-}
+//void	load_map(int fd, t_cub *cub)
+//{
+	
+//	char	*line;
 
-int	ft_strcmp(const char *s1, const char *s2)
-{
-	while (*s1 && (*s1 == *s2))
-	{
-		s1++;
-		s2++;
-	}
-	return *(unsigned char *)s1 - *(unsigned char *)s2;
-}
-
-void	free_two_ptr(char **str)
-{
-	int	len;
-
-	len = 0;
-	while (str[len] != NULL)
-		len++;
-	if (len > 1)
-	{
-		while (len-- > 0)
-			free(str[len]);
-	}
-	free(str);
-}
+//	printf("MAP_START:%d\n",cub->map_start);
+//	while (1)
+//	{
+//		line = get_next_line(fd);
+//		if (line == NULL)
+//			break ;
+//		else if (*line == '\n')
+//			continue ;
+//		else if (is_map_character(line) == TRUE)
+//		{
+//			if (is_only_space(line) == TRUE)
+//				cub->map_start++;
+//			else
+//				break ;
+//		}
+//		else
+//			print_error()
+//	}
+//}
