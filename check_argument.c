@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 16:15:36 by jaehejun          #+#    #+#             */
-/*   Updated: 2024/01/09 16:56:32 by jaehejun         ###   ########.fr       */
+/*   Updated: 2024/01/10 22:19:28 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,20 @@ void	check_argument(int argc, char **argv)
 	close(fd);
 }
 
-int	check_format(char *map_path)
+int	check_format(char *cub_path)
 {
 	int	file_len;
 
-	file_len = ft_strlen(map_path);
+	file_len = ft_strlen(cub_path);
 	if (file_len < 4)
 		return (INVALID);
-	if (map_path[file_len - 1] != 'b')
+	if (cub_path[file_len - 1] != 'b')
 		return (INVALID);
-	if (map_path[file_len - 2] != 'u')
+	if (cub_path[file_len - 2] != 'u')
 		return (INVALID);
-	if (map_path[file_len - 3] != 'c')
+	if (cub_path[file_len - 3] != 'c')
 		return (INVALID);
-	if (map_path[file_len - 4] != '.')
+	if (cub_path[file_len - 4] != '.')
 		return (INVALID);
 	return (VALID);
 }

@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 14:24:43 by jaehejun          #+#    #+#             */
-/*   Updated: 2024/01/10 15:46:25 by jaehejun         ###   ########.fr       */
+/*   Updated: 2024/01/10 22:10:05 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,20 @@ void	free_two_ptr(char **str)
 			free(str[len]);
 	}
 	free(str);
+}
+
+int	count_comma(char *rgb_info)
+{
+	int	index;
+	int	comma;
+
+	index = 0;
+	comma = 0;
+	while (rgb_info[index] != '\0')
+	{
+		if (rgb_info[index] == ',')
+			comma++;
+		index++;
+	}
+	return (comma);
 }

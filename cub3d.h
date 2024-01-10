@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:37:15 by jaehejun          #+#    #+#             */
-/*   Updated: 2024/01/10 19:20:41 by jaehejun         ###   ########.fr       */
+/*   Updated: 2024/01/10 22:21:43 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct s_cub
 	char	*ea;
 	t_rgb	floor;
 	t_rgb	ceiling;
-	t_map	map;
+	t_map	map_info;
 	int		element_count;
 	int		map_start;
 	int		map_end;
@@ -62,13 +62,14 @@ void	foo(void);
 void	print_error(const char *str);
 int		ft_strcmp(const char *s1, const char *s2);
 void	free_two_ptr(char **str);
+int		count_comma(char *rgb_info);
 
 // check_argument
 void	check_argument(int argc, char **argv);
-int		check_format(char *map_path);
+int		check_format(char *cub_path);
 
 // load_scene
-void	load_scene(char *map_path, t_cub *cub);
+void	load_scene(char *cub_path, t_cub *cub);
 void	init_scene(t_cub *cub);
 
 // load_texture
@@ -84,10 +85,13 @@ void	set_texture(char **sep, char **texture);
 void	set_rgb(char **sep, t_rgb *fc);
 int		check_rgb_value(char **rgb);
 
+
 // load_map
-void	load_map(int fd, t_cub *cub);
+void	load_map(int fd, t_cub *cub, char *cub_path);
 void	check_map_element(int fd, t_cub *cub);
 int		is_map_character(char *line);
+void	set_map_array(t_cub *cub, char *cub_path);
+
 //int		is_all_space(char *line);
 
 

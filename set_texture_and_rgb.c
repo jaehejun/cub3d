@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 13:24:02 by jaehejun          #+#    #+#             */
-/*   Updated: 2024/01/10 17:06:40 by jaehejun         ###   ########.fr       */
+/*   Updated: 2024/01/10 22:09:56 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ void	set_rgb(char **sep, t_rgb *fc)
 
 	if (sep[1] == NULL || sep[1][0] == '\n')
 		print_error("Information not exists");
+	if (count_comma(sep[1]) != 2)
+		print_error("Too many commmas");
 	if (sep[2] != NULL && sep[2][0] != '\n')
 		print_error("Too many informations");
 	rgb = ft_split(sep[1], ',');
@@ -80,7 +82,7 @@ void	set_rgb(char **sep, t_rgb *fc)
 		print_error("rgb[0] == NULL");
 	if (rgb[1] == NULL || rgb[2] == NULL)
 		print_error("Invalid rgb information");
-	if (rgb[3] != NULL)
+	if (rgb[3] != NULL && rgb[3][0] == '\n')
 		print_error("Invalid rgb information");
 	if (check_rgb_value(rgb) == INVALID)
 		print_error("Invalid rgv value");

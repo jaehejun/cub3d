@@ -6,15 +6,16 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 22:00:12 by jaehejun          #+#    #+#             */
-/*   Updated: 2024/01/10 20:21:36 by jaehejun         ###   ########.fr       */
+/*   Updated: 2024/01/10 22:23:10 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	load_map(int fd, t_cub *cub)
+void	load_map(int fd, t_cub *cub, char *cub_path)
 {
 	check_map_element(fd, cub);
+	set_map_array(cub, cub_path);
 
 	//dup_map
 	//is_surrounded_or_closed();
@@ -43,15 +44,18 @@ void	check_map_element(int fd, t_cub *cub)
 			if (cub->map_end == 1) //유효한 맵line 나온이후에 개행이 나왔었는데 다시 맵line이 나온다면
 				print_error("Map is seperated by empty lines");
 			cub->map_start = 1; // 유효한 맵line이면 start flag
-			cub->map.height++;
-			printf("WIDTH:%zu HEIGHT:%zu\n", cub->map.width, cub->map.height);
-			if (cub->map.width < ft_strlen(line))
-				cub->map.width = ft_strlen(line);
+			cub->map_info.height++;
+			printf("WIDTH:%zu HEIGHT:%zu\n", cub->map_info.width, cub->map_info.height);
+			if (cub->map_info.width < ft_strlen(line))
+				cub->map_info.width = ft_strlen(line);
 		}
 		else
 			print_error("Wrong map character");
 		free(line);
 	}
+	//printf("cub->map:%p\n", cub->map_info.map);
+	//if (cub->map_info.map == NULL)
+	//	print_error("There is no map element");
 }
 
 int	is_map_character(char *line)
@@ -69,6 +73,16 @@ int	is_map_character(char *line)
 			return (FALSE);
 	}
 	return (TRUE);
+}
+
+void	set_map_array(t_cub *cub, char *cub_path)
+{
+	int	fd;
+
+	fd = open(cub_path, O_RDONLY);
+	if (fd == -1)
+		print_error("Failed to open file");
+	
 }
 
 //int	is_all_space(char *line)
