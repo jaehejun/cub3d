@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 13:24:02 by jaehejun          #+#    #+#             */
-/*   Updated: 2024/01/10 15:33:39 by jaehejun         ###   ########.fr       */
+/*   Updated: 2024/01/10 17:06:40 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	set_texture(char **sep, char **path)
 
 	if (sep[1] == NULL || sep[1][0] == '\n')
 		print_error("Information not exists");
-	if (sep[2] != NULL)
+	if (sep[2] != NULL && sep[2][0] != '\n')
 		print_error("Too many informations");
 	if (*path != NULL)
 		print_error("Identifier already exists");
@@ -73,7 +73,7 @@ void	set_rgb(char **sep, t_rgb *fc)
 
 	if (sep[1] == NULL || sep[1][0] == '\n')
 		print_error("Information not exists");
-	if (sep[2] != NULL)
+	if (sep[2] != NULL && sep[2][0] != '\n')
 		print_error("Too many informations");
 	rgb = ft_split(sep[1], ',');
 	if (rgb[0] == NULL)

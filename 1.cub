@@ -1,10 +1,11 @@
 
-NO ./north
+NO ./north   
 SO ./south
-WE ./west
-    EA    ./east
 
-F 220,100,01
+    WE   ./west
+EA    ./east
+
+  F   220,100,01   
 
 
 
