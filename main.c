@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 16:13:09 by jaehejun          #+#    #+#             */
-/*   Updated: 2024/01/09 22:58:02 by jaehejun         ###   ########.fr       */
+/*   Updated: 2024/01/10 15:14:18 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 {
 	t_cub	cub;
 
-	atexit(foo);
+	//atexit(foo);
 	check_argument(argc, argv);
 	load_scene(argv[1], &cub);
 

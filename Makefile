@@ -6,7 +6,7 @@
 #    By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/03 19:32:59 by jaehejun          #+#    #+#              #
-#    Updated: 2024/01/09 22:57:53 by jaehejun         ###   ########.fr        #
+#    Updated: 2024/01/10 14:22:35 by jaehejun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,8 @@ SRCS	=	main.c\
 			utils.c\
 			check_argument.c\
 			load_scene.c\
+			load_texture.c\
+			set_texture_and_rgb.c\
 			load_map.c\
 			
 

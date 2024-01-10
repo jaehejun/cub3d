@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:37:15 by jaehejun          #+#    #+#             */
-/*   Updated: 2024/01/09 22:37:12 by jaehejun         ###   ########.fr       */
+/*   Updated: 2024/01/10 15:45:35 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,34 +62,33 @@ void	foo(void);
 void	print_error(const char *str);
 int		ft_strcmp(const char *s1, const char *s2);
 void	free_two_ptr(char **str);
+
 // check_argument
 void	check_argument(int argc, char **argv);
 int		check_format(char *map_path);
 
+// load_map
+void	load_map(int fd, t_cub *cub);
+
 // load_scene
 void	load_scene(char *map_path, t_cub *cub);
 void	init_scene(t_cub *cub);
+
+// load_texture
 void	load_texture(int fd, t_cub *cub);
 int		is_identifier(char *line, t_cub *cub);
+int		check_texture_duplicate(t_cub *cub);
+int		check_texture_path(t_cub *cub);
+
+// set_texture_and_rgb
 int		is_wall_texture(char **sep, t_cub *cub);
 int		is_rgb(char **sep, t_cub *cub);
 void	set_texture(char **sep, char **texture);
 void	set_rgb(char **sep, t_rgb *fc);
-int		check_texture_duplicate(t_cub *cub);
+int		check_rgb_value(char **rgb);
 
-// load_map
-void	load_map(int fd, t_cub *cub);
+
+
 //main.c
-//void		load_scene(t_cub *scene, char *map_path);
-//int			check_extension(char *path);
-//int			is_exist(char *path);
-//void		get_texture(t_cub *scene, int fd);
-//void		free_two_ptr(char **str);
-//void		init_scene(t_cub *scene);
-//int			is_identifier(char *line);
-//int			is_map_char(char *line);
-//void		free_two_ptr(char **str);
-//void		set_texture(t_cub *scene, char *line);
-//void		check_elements(int fd);
 
 #endif

@@ -2,8 +2,12 @@
 NO ./north
 SO ./south
 WE ./west
-  EA    ./east
-F 220,100,0
+    EA    ./east
+
+F 220,100,01
+
+
+
 C 225,30,0
 
 
