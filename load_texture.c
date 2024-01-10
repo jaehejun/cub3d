@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 13:22:24 by jaehejun          #+#    #+#             */
-/*   Updated: 2024/01/10 17:09:58 by jaehejun         ###   ########.fr       */
+/*   Updated: 2024/01/10 18:52:26 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,12 @@ void	load_texture(int fd, t_cub *cub)
 		line = get_next_line(fd);
 		if (line == NULL) // 파일 끝까지 다 읽음
 			break ;
-		else if (*line == '\n') // 다른문자없이 개행만 있는경우
+		else if (*line == '\n') // 빈줄(개행만 있는경우)
 			;
 		else if (is_identifier(line, cub) == TRUE)
 			cub->element_count++;
 		else
 			print_error("Wrong identifier");
-		cub->map_start++;
 		free(line);
 	}
 	if (cub->element_count != 6)

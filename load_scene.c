@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 16:58:32 by jaehejun          #+#    #+#             */
-/*   Updated: 2024/01/10 17:07:59 by jaehejun         ###   ########.fr       */
+/*   Updated: 2024/01/10 18:45:36 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	load_scene(char *map_path, t_cub *cub)
 	load_texture(fd, cub);
 	printf("F:%d,%d,%d\n", cub->floor.r, cub->floor.g, cub->floor.b);
 	printf("F:%d,%d,%d\n", cub->ceiling.r, cub->ceiling.g, cub->ceiling.b);
-	//load_map(fd, cub);
+	load_map(fd, cub);
 	close(fd);
 }
 

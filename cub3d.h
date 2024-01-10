@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:37:15 by jaehejun          #+#    #+#             */
-/*   Updated: 2024/01/10 15:45:35 by jaehejun         ###   ########.fr       */
+/*   Updated: 2024/01/10 19:20:41 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ typedef struct s_rgb
 typedef struct s_map
 {
 	char	**map;
-	int		width;
-	int		height;
+	size_t	width;
+	size_t	height;
 	char	start; // NSWE -> int로 변경가능
 	double	pos_x;
 	double	pos_y;
@@ -67,9 +67,6 @@ void	free_two_ptr(char **str);
 void	check_argument(int argc, char **argv);
 int		check_format(char *map_path);
 
-// load_map
-void	load_map(int fd, t_cub *cub);
-
 // load_scene
 void	load_scene(char *map_path, t_cub *cub);
 void	init_scene(t_cub *cub);
@@ -86,6 +83,13 @@ int		is_rgb(char **sep, t_cub *cub);
 void	set_texture(char **sep, char **texture);
 void	set_rgb(char **sep, t_rgb *fc);
 int		check_rgb_value(char **rgb);
+
+// load_map
+void	load_map(int fd, t_cub *cub);
+void	check_map_element(int fd, t_cub *cub);
+int		is_map_character(char *line);
+//int		is_all_space(char *line);
+
 
 
 
