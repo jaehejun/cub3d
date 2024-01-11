@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 22:00:12 by jaehejun          #+#    #+#             */
-/*   Updated: 2024/01/11 18:17:00 by jaehejun         ###   ########.fr       */
+/*   Updated: 2024/01/11 20:29:25 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,8 @@ void	set_map_array(t_cub *cub, char *cub_path)
 	fd = open(cub_path, O_RDONLY);
 	if (fd == -1)
 		print_error("Failed to open file");
-	cub->map_info.map = malloc(sizeof(char *) * cub->map_info.height);
+	cub->map_info.map = malloc(sizeof(char *) * cub->map_info.height + 1);
+	cub->map_info.map[cub->map_info.height] = NULL;
 	set_first_line(fd, cub);
 }
 
@@ -132,7 +133,14 @@ void	set_first_line(int fd, t_cub *cub)
 		}
 		free(line);
 	}
+	line = get_next_line(fd);
+	if (line[ft_strlen(line) - 1] == '\n')
+		line[ft_strlen(line) - 1] = '\0';
+	cub->map_info.map[1] = dup_and_fill_space(line, cub);
 	printf("FIRST:%s\n", cub->map_info.map[0]);
+	printf("LEN:%zu\n", ft_strlen(cub->map_info.map[0]));
+	printf("SECOND:%s\n", cub->map_info.map[1]);
+	printf("LEN:%zu\n", ft_strlen(cub->map_info.map[1]));
 }
 
 char	*dup_and_fill_space(char *line, t_cub *cub)
@@ -146,13 +154,28 @@ char	*dup_and_fill_space(char *line, t_cub *cub)
 	if (mapline == NULL)
 		print_error("Failed to malloc");
 	len = ft_strlen(line);
+	printf("remove nl len:%d\n", len);
 	width = cub->map_info.width;
+	printf("remove wid:%d\n", width);
 	index = 0;
-	while (width > 0)
+	mapline[width - 1] = '\0';
+	while (len-- > 0)
 	{
-		mapline[index] = 
+		mapline[index] = line[index];
+		printf("mapline[%d]:%d\n", index, mapline[index]);
+		index++;
+		width--;
 	}
+	while (width - 1 > 0)
+	{
+		mapline[index] = '@';
+		printf("fill[%d]:%d\n", index, mapline[index]);
+		index++;
+		width--;
+	}
+	return (mapline);
 }
+
 //int	is_all_space(char *line)
 //{
 //	int	index;
