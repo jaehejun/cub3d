@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:37:15 by jaehejun          #+#    #+#             */
-/*   Updated: 2024/01/10 22:21:43 by jaehejun         ###   ########.fr       */
+/*   Updated: 2024/01/11 18:11:12 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct s_cub
 	t_rgb	ceiling;
 	t_map	map_info;
 	int		element_count;
+	int		player_count;
 	int		map_start;
 	int		map_end;
 }	t_cub;
@@ -90,7 +91,11 @@ int		check_rgb_value(char **rgb);
 void	load_map(int fd, t_cub *cub, char *cub_path);
 void	check_map_element(int fd, t_cub *cub);
 int		is_map_character(char *line);
+int		count_player(char *line, t_cub *cub);
+void	update_mapsize(char *line, t_cub *cub);
 void	set_map_array(t_cub *cub, char *cub_path);
+void	set_first_line(int fd, t_cub *cub);
+char	*dup_and_fill_space(char *line, t_cub *cub);
 
 //int		is_all_space(char *line);
 

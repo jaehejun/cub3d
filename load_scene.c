@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 16:58:32 by jaehejun          #+#    #+#             */
-/*   Updated: 2024/01/10 22:19:39 by jaehejun         ###   ########.fr       */
+/*   Updated: 2024/01/11 14:55:12 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	load_scene(char *cub_path, t_cub *cub)
 	printf("F:%d,%d,%d\n", cub->floor.r, cub->floor.g, cub->floor.b);
 	printf("F:%d,%d,%d\n", cub->ceiling.r, cub->ceiling.g, cub->ceiling.b);
 	load_map(fd, cub, cub_path);
-	close(fd);
+	//close(fd);
 }
 
 void	init_scene(t_cub *cub)
@@ -46,6 +46,7 @@ void	init_scene(t_cub *cub)
 	cub->map_info.pos_x = 0;
 	cub->map_info.pos_y = 0;
 	cub->element_count = 0;
+	cub->player_count = 0;
 	cub->map_start = 0;
 	cub->map_end = 0;
 }
