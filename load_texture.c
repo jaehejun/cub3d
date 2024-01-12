@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 13:22:24 by jaehejun          #+#    #+#             */
-/*   Updated: 2024/01/12 16:01:49 by jaehejun         ###   ########.fr       */
+/*   Updated: 2024/01/12 20:44:58 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,10 @@ void	load_texture(int fd, t_cub *cub)
 		print_error("Not enough elements");
 	if (check_texture_duplicate(cub) == INVALID)
 		print_error("Texture path must be different");
-	if (check_texture_path(cub) == INVALID)
-		print_error("Failed to open texture file");
+	check_texture_file(cub->no);
+	check_texture_file(cub->so);
+	check_texture_file(cub->we);
+	check_texture_file(cub->ea);
 }
 
 int	is_identifier(char *line, t_cub *cub)
@@ -76,25 +78,17 @@ int	check_texture_duplicate(t_cub *cub)
 	return (VALID);
 }
 
-int	check_texture_path(t_cub *cub)
+void	check_texture_file(char *texture_path)
 {
-	int	texture_fd;
+	int		texture_fd;
+	char	*line;
 
-	texture_fd = open(cub->no, O_RDONLY);
+	texture_fd = open(texture_path, O_RDONLY);
 	if (texture_fd == -1)
-		return (INVALID);
+		print_error("Failed to open texture file");
+	line = get_next_line(texture_fd);
+	if (line == NULL)
+		print_error("Empty texture file");
+	free(line);
 	close(texture_fd);
-	texture_fd = open(cub->so, O_RDONLY);
-	if (texture_fd == -1)
-		return (INVALID);
-	close(texture_fd);
-	texture_fd = open(cub->we, O_RDONLY);
-	if (texture_fd == -1)
-		return (INVALID);
-	close(texture_fd);
-	texture_fd = open(cub->ea, O_RDONLY);
-	if (texture_fd == -1)
-		return (INVALID);
-	close(texture_fd);
-	return (VALID);
 }

@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:37:15 by jaehejun          #+#    #+#             */
-/*   Updated: 2024/01/12 15:44:58 by jaehejun         ###   ########.fr       */
+/*   Updated: 2024/01/12 20:45:22 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	init_scene(t_cub *cub);
 void	load_texture(int fd, t_cub *cub);
 int		is_identifier(char *line, t_cub *cub);
 int		check_texture_duplicate(t_cub *cub);
-int		check_texture_path(t_cub *cub);
+void	check_texture_file(char *texture_path);
 
 // set_texture_and_rgb
 int		is_wall_texture(char **sep, t_cub *cub);
