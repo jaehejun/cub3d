@@ -6,15 +6,15 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:34:33 by jaehejun          #+#    #+#             */
-/*   Updated: 2024/01/12 15:41:09 by jaehejun         ###   ########.fr       */
+/*   Updated: 2024/01/12 20:53:33 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 int	check_map_from_outside(t_cub *cub)
 {
-	if (check_top_end(cub) == INVALID ||check_bottom_end(cub) == INVALID || \
+	if (check_top_end(cub) == INVALID || check_bottom_end(cub) == INVALID || \
 		check_left_end(cub) == INVALID || check_right_end(cub) == INVALID)
 		return (INVALID);
 	return (VALID);

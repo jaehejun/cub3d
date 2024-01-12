@@ -6,11 +6,11 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 16:15:36 by jaehejun          #+#    #+#             */
-/*   Updated: 2024/01/10 22:19:28 by jaehejun         ###   ########.fr       */
+/*   Updated: 2024/01/12 20:49:07 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void	check_argument(int argc, char **argv)
 {

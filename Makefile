@@ -6,7 +6,7 @@
 #    By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/03 19:32:59 by jaehejun          #+#    #+#              #
-#    Updated: 2024/01/12 15:47:07 by jaehejun         ###   ########.fr        #
+#    Updated: 2024/01/12 22:47:15 by jaehejun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,15 +17,15 @@ CC		=	CC
 CFLAGS	=	-Wall -Wextra -Werror -I./libft #-fsanitize=address -g
 
 SRCS	=	main.c\
-			utils.c\
-			check_argument.c\
-			load_scene.c\
-			load_texture.c\
-			set_texture_and_rgb.c\
-			load_map.c\
-			set_map_array.c\
-			is_closed_map.c\
-			check_map_from_outside.c\
+			src/utils.c\
+			src/check_argument.c\
+			src/load_scene.c\
+			src/load_texture.c\
+			src/set_texture_and_rgb.c\
+			src/load_map.c\
+			src/set_map_array.c\
+			src/is_closed_map.c\
+			src/check_map_from_outside.c\
 			
 			
 

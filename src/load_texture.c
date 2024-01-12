@@ -6,11 +6,11 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 13:22:24 by jaehejun          #+#    #+#             */
-/*   Updated: 2024/01/12 20:44:58 by jaehejun         ###   ########.fr       */
+/*   Updated: 2024/01/12 20:49:54 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void	load_texture(int fd, t_cub *cub)
 {
@@ -19,9 +19,9 @@ void	load_texture(int fd, t_cub *cub)
 	while (cub->element_count < 6)
 	{
 		line = get_next_line(fd);
-		if (line == NULL) // 파일 끝까지 다 읽음
+		if (line == NULL)
 			break ;
-		else if (*line == '\n') // 빈줄(개행만 있는경우)
+		else if (*line == '\n')
 			;
 		else if (is_identifier(line, cub) == TRUE)
 			cub->element_count++;
@@ -46,10 +46,8 @@ int	is_identifier(char *line, t_cub *cub)
 	sep = ft_split(line, ' ');
 	if (sep == NULL)
 		print_error("Failed to malloc");
-	// space만 있는 줄로 파일이 끝나는 경우(   )
-	if (sep[0] == NULL) // -> sep[0][0]에 접근하면 segfault
+	if (sep[0] == NULL)
 		return (FALSE);
-	// space + '\n' 만 있는 경우(  '\n')
 	else if (sep[0][0] == '\n')
 		return (FALSE);
 	else if (is_wall_texture(sep, cub) == TRUE || is_rgb(sep, cub) == TRUE)

@@ -6,11 +6,11 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 22:00:12 by jaehejun          #+#    #+#             */
-/*   Updated: 2024/01/12 16:00:33 by jaehejun         ###   ########.fr       */
+/*   Updated: 2024/01/12 22:33:25 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void	load_map(int fd, t_cub *cub, char *cub_path)
 {
@@ -22,6 +22,7 @@ void	load_map(int fd, t_cub *cub, char *cub_path)
 	set_map_array(cub, cub_path);
 	if (is_closed_map(cub) == INVALID)
 		print_error("Map is not closed");
+	update_starting_position(cub);
 }
 
 void	check_map_element(int fd, t_cub *cub)
@@ -31,18 +32,18 @@ void	check_map_element(int fd, t_cub *cub)
 	while (1)
 	{
 		line = get_next_line(fd);
-		if (line == NULL) // 끝까지 다 읽음
+		if (line == NULL)
 			break ;
-		else if (*line == '\n') // 빈줄(개행만 있는경우)
+		else if (*line == '\n')
 		{
-			if (cub->map_start == 1) // map시작전까지는 넘기고
-				cub->map_end = 1; // map시작했는데 개행만나오면 end flag
+			if (cub->map_start == 1)
+				cub->map_end = 1;
 		}
 		else if (is_map_character(line) == TRUE && count_player(line, cub) < 2)
 		{
-			if (cub->map_end == 1) //유효한 맵line 나온이후에 개행이 나왔었는데 다시 맵line이 나온다면
+			if (cub->map_end == 1)
 				print_error("Map is seperated by empty lines");
-			cub->map_start = 1; // 유효한 맵line이면 start flag
+			cub->map_start = 1;
 			update_mapsize(line, cub);
 		}
 		else

@@ -6,11 +6,11 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 13:48:35 by jaehejun          #+#    #+#             */
-/*   Updated: 2024/01/12 13:57:08 by jaehejun         ###   ########.fr       */
+/*   Updated: 2024/01/12 22:46:06 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void	set_map_array(t_cub *cub, char *cub_path)
 {
@@ -19,7 +19,7 @@ void	set_map_array(t_cub *cub, char *cub_path)
 	fd = open(cub_path, O_RDONLY);
 	if (fd == -1)
 		print_error("Failed to open file");
-	cub->map_info.map = malloc(sizeof(char *) * cub->map_info.height + 1);
+	cub->map_info.map = malloc(sizeof(char *) * (cub->map_info.height + 1));
 	cub->map_info.map[cub->map_info.height] = NULL;
 	set_first_line(fd, cub);
 	set_every_line(fd, cub);

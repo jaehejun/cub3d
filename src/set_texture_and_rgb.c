@@ -6,11 +6,11 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 13:24:02 by jaehejun          #+#    #+#             */
-/*   Updated: 2024/01/12 16:02:02 by jaehejun         ###   ########.fr       */
+/*   Updated: 2024/01/12 22:16:05 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 int	is_wall_texture(char **sep, t_cub *cub)
 {
@@ -55,9 +55,17 @@ int	is_rgb(char **sep, t_cub *cub)
 	if (ft_strlen(sep[0]) == 1 || (ft_strlen(sep[0]) == 2 && sep[0][1] == '\n'))
 	{
 		if (ft_strncmp(sep[0], "F", 1) == 0)
+		{
+			if (cub->floor.r != -1)
+				print_error("Identifier already exists");
 			set_rgb(sep, &cub->floor);
+		}
 		else if (ft_strncmp(sep[0], "C", 1) == 0)
+		{
+			if (cub->ceiling.r != -1)
+				print_error("Identifier already exists");
 			set_rgb(sep, &cub->ceiling);
+		}
 		else
 			return (FALSE);
 		return (TRUE);
@@ -73,7 +81,7 @@ void	set_rgb(char **sep, t_rgb *fc)
 	if (sep[1] == NULL || sep[1][0] == '\n')
 		print_error("Information not exists");
 	if (count_comma(sep[1]) != 2)
-		print_error("Too many commmas");
+		print_error("Wrong number of commas");
 	if (sep[2] != NULL && sep[2][0] != '\n')
 		print_error("Too many informations");
 	rgb = ft_split(sep[1], ',');

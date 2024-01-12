@@ -6,11 +6,11 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 16:58:32 by jaehejun          #+#    #+#             */
-/*   Updated: 2024/01/12 17:23:51 by jaehejun         ###   ########.fr       */
+/*   Updated: 2024/01/12 22:19:13 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void	load_scene(char *cub_path, t_cub *cub)
 {
@@ -22,7 +22,6 @@ void	load_scene(char *cub_path, t_cub *cub)
 		print_error("Failed to open file");
 	load_texture(fd, cub);
 	load_map(fd, cub, cub_path);
-	//close(fd);
 }
 
 void	init_scene(t_cub *cub)
@@ -31,12 +30,12 @@ void	init_scene(t_cub *cub)
 	cub->so = NULL;
 	cub->we = NULL;
 	cub->ea = NULL;
-	cub->floor.r = 0;
-	cub->floor.g = 0;
-	cub->floor.b = 0;
-	cub->ceiling.r = 0;
-	cub->ceiling.g = 0;
-	cub->ceiling.b = 0;
+	cub->floor.r = -1;
+	cub->floor.g = -1;
+	cub->floor.b = -1;
+	cub->ceiling.r = -1;
+	cub->ceiling.g = -1;
+	cub->ceiling.b = -1;
 	cub->map_info.map = NULL;
 	cub->map_info.width = 0;
 	cub->map_info.height = 0;

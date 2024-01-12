@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:37:15 by jaehejun          #+#    #+#             */
-/*   Updated: 2024/01/12 20:45:22 by jaehejun         ###   ########.fr       */
+/*   Updated: 2024/01/12 22:33:14 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ void	set_every_line(int fd, t_cub *cub);
 int		is_closed_map(t_cub *cub);
 int		check_map_from_outside(t_cub *cub);
 int		check_map_from_inside(t_cub *cub);
+void	update_starting_position(t_cub *cub);
 
 //check_map_from_outsied
 int		check_top_end(t_cub *cub);

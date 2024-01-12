@@ -6,11 +6,11 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 14:24:43 by jaehejun          #+#    #+#             */
-/*   Updated: 2024/01/10 22:10:05 by jaehejun         ###   ########.fr       */
+/*   Updated: 2024/01/12 20:50:06 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void	print_error(const char *str)
 {
