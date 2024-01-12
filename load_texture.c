@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 13:22:24 by jaehejun          #+#    #+#             */
-/*   Updated: 2024/01/10 21:41:25 by jaehejun         ###   ########.fr       */
+/*   Updated: 2024/01/12 16:01:49 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ int	is_identifier(char *line, t_cub *cub)
 	sep = ft_split(line, ' ');
 	if (sep == NULL)
 		print_error("Failed to malloc");
-	printf("sep[0]:%s\n", sep[0]);
 	// space만 있는 줄로 파일이 끝나는 경우(   )
 	if (sep[0] == NULL) // -> sep[0][0]에 접근하면 segfault
 		return (FALSE);

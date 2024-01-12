@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 13:24:02 by jaehejun          #+#    #+#             */
-/*   Updated: 2024/01/10 22:09:56 by jaehejun         ###   ########.fr       */
+/*   Updated: 2024/01/12 16:02:02 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	set_texture(char **sep, char **path)
 	*path = ft_strdup(sep[1]);
 	if (*path == NULL)
 		print_error("Failed to duplicate texture path");
-	printf("PATH:%s\n", *path);
 }
 
 int	is_rgb(char **sep, t_cub *cub)

@@ -6,7 +6,7 @@
 #    By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/03 19:32:59 by jaehejun          #+#    #+#              #
-#    Updated: 2024/01/10 14:22:35 by jaehejun         ###   ########.fr        #
+#    Updated: 2024/01/12 15:47:07 by jaehejun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,10 @@ SRCS	=	main.c\
 			load_texture.c\
 			set_texture_and_rgb.c\
 			load_map.c\
+			set_map_array.c\
+			is_closed_map.c\
+			check_map_from_outside.c\
+			
 			
 
 OBJS	=	$(SRCS:.c=.o)

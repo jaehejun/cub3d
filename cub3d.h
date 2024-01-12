@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:37:15 by jaehejun          #+#    #+#             */
-/*   Updated: 2024/01/11 18:11:12 by jaehejun         ###   ########.fr       */
+/*   Updated: 2024/01/12 15:44:58 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ typedef struct s_rgb
 typedef struct s_map
 {
 	char	**map;
-	size_t	width;
-	size_t	height;
+	int		width;
+	int		height;
 	char	start; // NSWE -> int로 변경가능
 	double	pos_x;
 	double	pos_y;
@@ -86,22 +86,30 @@ void	set_texture(char **sep, char **texture);
 void	set_rgb(char **sep, t_rgb *fc);
 int		check_rgb_value(char **rgb);
 
-
 // load_map
 void	load_map(int fd, t_cub *cub, char *cub_path);
 void	check_map_element(int fd, t_cub *cub);
 int		is_map_character(char *line);
 int		count_player(char *line, t_cub *cub);
 void	update_mapsize(char *line, t_cub *cub);
+
+// set_map_array
 void	set_map_array(t_cub *cub, char *cub_path);
 void	set_first_line(int fd, t_cub *cub);
 char	*dup_and_fill_space(char *line, t_cub *cub);
+void	set_every_line(int fd, t_cub *cub);
+
+// is_closed_map
+int		is_closed_map(t_cub *cub);
+int		check_map_from_outside(t_cub *cub);
+int		check_map_from_inside(t_cub *cub);
+
+//check_map_from_outsied
+int		check_top_end(t_cub *cub);
+int		check_bottom_end(t_cub *cub);
+int		check_left_end(t_cub *cub);
+int		check_right_end(t_cub *cub);
 
 //int		is_all_space(char *line);
-
-
-
-
-//main.c
 
 #endif
