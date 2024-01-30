@@ -6,7 +6,7 @@
 #    By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/03 19:32:59 by jaehejun          #+#    #+#              #
-#    Updated: 2024/01/12 22:47:15 by jaehejun         ###   ########.fr        #
+#    Updated: 2024/01/17 21:11:59 by jaehejun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,13 +33,19 @@ OBJS	=	$(SRCS:.c=.o)
 
 LIBFT	=	./libft/libft.a
 
+MLX		=	./mlx/libmlx.a
+
 all		:	$(LIBFT) $(NAME)
 
 $(LIBFT):
 	make -C ./libft
 
+$(MLX):
+	make -C ./mlx
+
 $(NAME)	:	$(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -L./libft -lft -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -L./libft -lft \
+		-Lmlx -lmlx -framework OpenGL -framework Appkit -o $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@

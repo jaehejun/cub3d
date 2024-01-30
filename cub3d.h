@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:37:15 by jaehejun          #+#    #+#             */
-/*   Updated: 2024/01/12 22:33:14 by jaehejun         ###   ########.fr       */
+/*   Updated: 2024/01/29 21:07:29 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,5 @@ int		check_bottom_end(t_cub *cub);
 int		check_left_end(t_cub *cub);
 int		check_right_end(t_cub *cub);
 
-//int		is_all_space(char *line);
 
 #endif
