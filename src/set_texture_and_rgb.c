@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 13:24:02 by jaehejun          #+#    #+#             */
-/*   Updated: 2024/01/30 16:34:22 by jaehejun         ###   ########.fr       */
+/*   Updated: 2024/01/30 17:04:33 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	set_rgb(char **sep, t_rgb *fc)
 	rgb = ft_split(sep[1], ',');
 	// information에 쉼표밖에 없는 경우
 	if (rgb[0] == NULL || rgb[0][0] == '\n')
-		print_error("rgb[0] == NULL");
+		print_error("Invalid rgb information");
 	// rgb 숫자가 1개밖에 없거나 2개밖에 없는 경우
 	if (rgb[1] == NULL || rgb[2] == NULL || rgb[2][0] == '\n')
 		print_error("Invalid rgb information");
